@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-struct Quotes: Codable {
+struct Quote: Codable {
 
     @DocumentID var id: String?
     var title: String?

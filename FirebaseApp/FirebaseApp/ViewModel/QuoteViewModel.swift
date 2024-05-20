@@ -9,7 +9,7 @@ import FirebaseFirestore
 
 class QuoteViewModel: ObservableObject {
 
-    @Published var quotes = [Quotes]()
+    @Published var quotes = [Quote]()
     private var firestoreDatabase = Firestore.firestore().collection("Quotes")
 
     func postDataToFirestore(title: String) {
@@ -29,8 +29,8 @@ class QuoteViewModel: ObservableObject {
                 return
             }
 
-            self.quotes = documents.compactMap { queryDocumentSnapshot -> Quotes? in
-                return try? queryDocumentSnapshot.data(as: Quotes.self)
+            self.quotes = documents.compactMap { queryDocumentSnapshot -> Quote? in
+                return try? queryDocumentSnapshot.data(as: Quote.self)
             }
         }
     }
