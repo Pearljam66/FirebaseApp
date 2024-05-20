@@ -10,7 +10,7 @@ import SwiftUI
 struct FormView: View {
     @Environment(\.dismiss) var dismiss
     @State var titleText = ""
-    @ObservedObject private var viewModel = NoteViewModel()
+    @ObservedObject private var viewModel = QuoteViewModel()
 
 
     var body: some View {

@@ -18,7 +18,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 
 @main
-struct MyApp: App {
+struct QuoteApp: App {
 
     // Register app delegate for Firebase setup.
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate

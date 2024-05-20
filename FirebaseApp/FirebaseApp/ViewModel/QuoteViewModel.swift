@@ -1,5 +1,5 @@
 //
-//  NoteViewModel.swift
+//  QuoteViewModel.swift
 //  FirebaseApp
 //
 //  Created by Sarah Clark on 5/20/24.
@@ -7,10 +7,10 @@
 
 import FirebaseFirestore
 
-class NoteViewModel: ObservableObject {
+class QuoteViewModel: ObservableObject {
 
-    @Published var notes = [Note]()
-    private var firestoreDatabase = Firestore.firestore().collection("Notes")
+    @Published var quotes = [Quotes]()
+    private var firestoreDatabase = Firestore.firestore().collection("Quotes")
 
     func postDataToFirestore(title: String) {
         firestoreDatabase.addDocument(data: ["title": title]) { error in
@@ -29,8 +29,8 @@ class NoteViewModel: ObservableObject {
                 return
             }
 
-            self.notes = documents.compactMap { queryDocumentSnapshot -> Note? in
-                return try? queryDocumentSnapshot.data(as: Note.self)
+            self.quotes = documents.compactMap { queryDocumentSnapshot -> Quotes? in
+                return try? queryDocumentSnapshot.data(as: Quotes.self)
             }
         }
     }
