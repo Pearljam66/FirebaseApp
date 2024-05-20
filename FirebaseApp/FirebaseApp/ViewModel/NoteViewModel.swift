@@ -22,5 +22,17 @@ class NoteViewModel: ObservableObject {
         }
     }
 
+    func readDataFromFirestore() {
+        firestoreDatabase.addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("There are not documents")
+                return
+            }
+
+            self.notes = documents.compactMap { queryDocumentSnapshot -> Note? in
+                return try? queryDocumentSnapshot.data(as: Note.self)
+            }
+        }
+    }
 
 }
