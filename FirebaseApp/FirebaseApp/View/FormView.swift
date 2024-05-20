@@ -16,12 +16,21 @@ struct FormView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("Titles")) {
+                Section(header: Text("add quote here:")) {
                     TextEditor(text: $titleText)
                         .frame(minHeight: 200)
                 }
+            }
+            .navigationTitle("Add Quote")
+            .toolbar {
 
-                Section {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         self.viewModel.postDataToFirestore(title: titleText)
                         titleText = ""
@@ -30,15 +39,6 @@ struct FormView: View {
                         Text("Save")
                     }
                     .disabled(self.titleText.isEmpty)
-                    .foregroundStyle(.blue)
-                }
-            }
-            .navigationTitle("Publish")
-            .toolbar {
-                ToolbarItemGroup(placement: .destructiveAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
                 }
             }
         }
