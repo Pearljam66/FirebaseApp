@@ -16,15 +16,17 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(Array(viewModel.quotes.enumerated()), id: \.element.id) { index, quote in
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
-                            Text("\(index + 1).")
-                                .font(.system(size: 22, weight: .bold))
-                            Text(quote.title ?? "")
-                                .font(.system(size: 22, weight: .regular))
+                    NavigationLink(destination: QuoteDetailView(quote: quote)) {
+                        VStack(alignment: .leading) {
+                            HStack(alignment: .top) {
+                                Text("\(index + 1).")
+                                    .font(.system(size: 22, weight: .bold))
+                                Text(quote.title ?? "")
+                                    .font(.system(size: 22, weight: .regular))
+                            }
                         }
+                        .frame(maxHeight: 200)
                     }
-                    .frame(maxHeight: 200)
                 }
             }
             .onAppear(perform: self.viewModel.readDataFromFirestore)

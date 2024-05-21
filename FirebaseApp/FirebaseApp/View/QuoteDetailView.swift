@@ -11,7 +11,17 @@ struct QuoteDetailView: View {
     var quote: Quote
 
     var body: some View {
-        Text("\(quote.title ?? "Nothing to see here.")")
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    Text("\(quote.title ?? "Nothing to see here.")")
+                        .font(.system(size: 22, weight: .regular))
+                        .padding()
+                    Spacer()
+                }
+            }
+            .navigationTitle("Quote Details")
+        }
     }
 }
 
