@@ -17,7 +17,7 @@ class QuoteViewModel: ObservableObject {
             if let error {
                 print("Error adding document: \(error.localizedDescription)")
             } else {
-                print("Document added successfully")
+                print("Document added successfully.")
             }
         }
     }
@@ -25,12 +25,22 @@ class QuoteViewModel: ObservableObject {
     func readDataFromFirestore() {
         firestoreDatabase.addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
-                print("There are not documents")
+                print("There are not documents.")
                 return
             }
 
             self.quotes = documents.compactMap { queryDocumentSnapshot -> Quote? in
                 return try? queryDocumentSnapshot.data(as: Quote.self)
+            }
+        }
+    }
+
+    func editDataInFirestore(title: String, id: String) {
+        firestoreDatabase.document(id).updateData(["title" : title]) { error in
+            if let error {
+                print(error.localizedDescription)
+            } else {
+                print("Quote updated successfully.")
             }
         }
     }
