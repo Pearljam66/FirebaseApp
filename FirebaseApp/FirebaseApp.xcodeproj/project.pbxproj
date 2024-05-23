@@ -29,6 +29,8 @@
 		26DE73C72BFBEFEF009F655D /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73C62BFBEFEF009F655D /* QuoteViewModel.swift */; };
 		26DE73C92BFBF3BB009F655D /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73C82BFBF3BB009F655D /* FormView.swift */; };
 		26DE73CB2BFC1015009F655D /* QuoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73CA2BFC1015009F655D /* QuoteDetailView.swift */; };
+		26DE73D52BFFD96E009F655D /* QuoteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73D42BFFD96E009F655D /* QuoteViewModelTests.swift */; };
+		26DE73D82BFFDA05009F655D /* MockFirestoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73D72BFFDA05009F655D /* MockFirestoreDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		26DE73C62BFBEFEF009F655D /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		26DE73C82BFBF3BB009F655D /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		26DE73CA2BFC1015009F655D /* QuoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailView.swift; sourceTree = "<group>"; };
+		26DE73D42BFFD96E009F655D /* QuoteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModelTests.swift; sourceTree = "<group>"; };
+		26DE73D72BFFDA05009F655D /* MockFirestoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirestoreDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +150,9 @@
 		260EB3FC2BFBC65B0023BD56 /* FirebaseAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				26DE73D62BFFD9E8009F655D /* Mocks */,
 				260EB3FD2BFBC65B0023BD56 /* FirebaseAppTests.swift */,
+				26DE73D42BFFD96E009F655D /* QuoteViewModelTests.swift */,
 			);
 			path = FirebaseAppTests;
 			sourceTree = "<group>";
@@ -184,6 +190,14 @@
 				26DE73C62BFBEFEF009F655D /* QuoteViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26DE73D62BFFD9E8009F655D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				26DE73D72BFFDA05009F655D /* MockFirestoreDatabase.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				260EB3FE2BFBC65B0023BD56 /* FirebaseAppTests.swift in Sources */,
+				26DE73D52BFFD96E009F655D /* QuoteViewModelTests.swift in Sources */,
+				26DE73D82BFFDA05009F655D /* MockFirestoreDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
