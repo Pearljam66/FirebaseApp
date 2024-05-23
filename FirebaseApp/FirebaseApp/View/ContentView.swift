@@ -28,6 +28,7 @@ struct ContentView: View {
                         .frame(maxHeight: 200)
                     }
                 }
+                .onDelete(perform: self.viewModel.deleteDataInFirestore(at:))
             }
             .onAppear(perform: self.viewModel.readDataFromFirestore)
             .toolbar {

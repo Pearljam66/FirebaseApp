@@ -45,4 +45,17 @@ class QuoteViewModel: ObservableObject {
         }
     }
 
+    func deleteDataInFirestore(at indexSet: IndexSet) {
+        indexSet.forEach { index in
+            let quote = quotes[index]
+            firestoreDatabase.document(quote.id ?? "").delete { error in
+                if let error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Quote with ID \(quote.id ?? "") has been deleted.")
+                }
+            }
+        }
+    }
+
 }
