@@ -18,32 +18,37 @@ struct QuoteDetailView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Text("\(quote.title ?? "Nothing to see here.")")
+                    Text(quote.title ?? "Nothing to see here.")
                         .font(.system(size: 22, weight: .regular))
                         .padding()
                     Spacer()
                 }
             }
-            .navigationTitle("Quote Details")
+
+        }
+        .navigationTitle("Quote Details")
             .toolbar {
                 ToolbarItemGroup(placement: .confirmationAction) {
                     Button {
-                        presentAlert = false
+                        presentAlert = true
                     } label: {
                         Text("Edit").bold()
                     }
                     .alert("Quote", isPresented: $presentAlert, actions: {
                         TextField("\(quote.title ?? "")", text: $titleText)
-                        Button("Update", action: {
-
+                        Button("Save", action: {
+                            self.viewModel.editDataInFirestore(title: titleText, id: quote.id ?? "")
+                            titleText = ""
                         })
-                        Button("Cancel", action: {
+                        Button("Cancel", role: .cancel, action: {
                             presentAlert = false
+                            titleText = ""
                         })
+                    }, message: {
+                        Text("Change your quote.")
                     })
                 }
             }
-        }
     }
 }
 
