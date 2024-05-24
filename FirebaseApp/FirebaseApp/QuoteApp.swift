@@ -25,7 +25,7 @@ struct QuoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthDecisionView().environmentObject(AuthViewModel())
         }
     }
 }
