@@ -30,7 +30,7 @@ struct LoginView: View {
                     }
                 }
             }
-            .navigationTitle("Welcome")
+            .navigationTitle("Welcome to Quotes")
         }
 
     }
