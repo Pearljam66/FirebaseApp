@@ -10,29 +10,59 @@ import SwiftUI
 struct LoginView: View {
     @State private var emailAddress: String = ""
     @State private var password: String = ""
+    @State private var displaySheet = false
+    @EnvironmentObject private var authViewModel: AuthViewModel
 
     var body: some View {
         NavigationStack {
 
             Form {
-                TextField("Email address", text: $emailAddress)
-                    .autocorrectionDisabled(true)
-                SecureField("Password", text: $password)
-                    .autocorrectionDisabled(true)
-            }
+                Section {
+                    TextField("Email address", text: $emailAddress)
+                        .autocorrectionDisabled(true)
+                        .keyboardType(.emailAddress)
+                    SecureField("Password", text: $password)
+                        .autocorrectionDisabled(true)
+                    }
 
-            .toolbar {
-                ToolbarItem (placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Log in to Firebase
-                    }) {
-                        Text("Sign In")
+                Section {
+                    HStack {
+                        Text("Forgot password?")
+                        Button {
+                            displaySheet.toggle()
+                        } label: {
+                            Text("Reset Password").bold()
+                        }
+                        .sheet(isPresented: $displaySheet) {
+                            RenamePasswordView()
+                        }
                     }
                 }
-            }
-            .navigationTitle("Welcome to Quotes")
-        }
 
+                    Section {
+                        HStack {
+                            Text("Don't have an account?")
+                            Button(action: {
+                                authViewModel.createAnAccount(emailAddress: emailAddress, password: password)
+                            }) {
+                                Text("Create Account").bold()
+                            }
+                        }
+                    }
+                }
+
+                .toolbar {
+                    ToolbarItem (placement: .navigationBarTrailing) {
+                        Button(action: {
+                            authViewModel.signIn(emailAddress: emailAddress, password: password)
+                        }) {
+                            Text("Sign In")
+                        }
+                    }
+                }
+            .navigationTitle("Welcome to Quotes")
+
+        }
     }
 }
 

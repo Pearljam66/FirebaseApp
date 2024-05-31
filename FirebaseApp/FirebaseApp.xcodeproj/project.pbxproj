@@ -34,6 +34,7 @@
 		26DE73DC2BFFE20D009F655D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73DB2BFFE20D009F655D /* AuthViewModel.swift */; };
 		26DE73DE2BFFE427009F655D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73DD2BFFE427009F655D /* LoginView.swift */; };
 		26DE73E02BFFE475009F655D /* AuthDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73DF2BFFE475009F655D /* AuthDecisionView.swift */; };
+		26DE73E62C08E8E1009F655D /* RenamePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DE73E52C08E8E1009F655D /* RenamePasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		26DE73DB2BFFE20D009F655D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		26DE73DD2BFFE427009F655D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		26DE73DF2BFFE475009F655D /* AuthDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDecisionView.swift; sourceTree = "<group>"; };
+		26DE73E52C08E8E1009F655D /* RenamePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenamePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				26DE73C82BFBF3BB009F655D /* FormView.swift */,
 				26DE73DD2BFFE427009F655D /* LoginView.swift */,
 				26DE73CA2BFC1015009F655D /* QuoteDetailView.swift */,
+				26DE73E52C08E8E1009F655D /* RenamePasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				26DE73C92BFBF3BB009F655D /* FormView.swift in Sources */,
 				260EB3ED2BFBC65A0023BD56 /* QuoteApp.swift in Sources */,
 				26DE73DE2BFFE427009F655D /* LoginView.swift in Sources */,
+				26DE73E62C08E8E1009F655D /* RenamePasswordView.swift in Sources */,
 				26DE73C42BFBEEAF009F655D /* Quote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
