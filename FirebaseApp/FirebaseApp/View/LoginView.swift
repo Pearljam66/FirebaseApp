@@ -10,7 +10,9 @@ import SwiftUI
 struct LoginView: View {
     @State private var emailAddress: String = ""
     @State private var password: String = ""
-    @State private var displaySheet = false
+    @State private var isPasswordVisible: Bool = false
+    @State private var displayResetPasswordSheet = false
+    @State private var displayCreateAccountSheet = false
     @EnvironmentObject private var authViewModel: AuthViewModel
 
     var body: some View {
@@ -21,20 +23,38 @@ struct LoginView: View {
                     TextField("Email address", text: $emailAddress)
                         .autocorrectionDisabled(true)
                         .keyboardType(.emailAddress)
-                    SecureField("Password", text: $password)
-                        .autocorrectionDisabled(true)
+                        .textInputAutocapitalization(.never)
+                    HStack {
+                        if isPasswordVisible {
+                            TextField("Password", text: $password)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .autocorrectionDisabled(true)
+                                .textInputAutocapitalization(.never)
+                        } else {
+                            SecureField("Password", text: $password)
+                                .autocorrectionDisabled(true)
+                                .textInputAutocapitalization(.never)
+                        }
+                        Button(action: {
+                            isPasswordVisible.toggle()
+                        }) {
+                            Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(.gray)
+                        }
+                    }
+
                     }
 
                 Section {
                     HStack {
                         Text("Forgot password?")
                         Button {
-                            displaySheet.toggle()
+                            displayResetPasswordSheet.toggle()
                         } label: {
                             Text("Reset Password").bold()
                         }
-                        .sheet(isPresented: $displaySheet) {
-                            RenamePasswordView()
+                        .sheet(isPresented: $displayResetPasswordSheet) {
+                            ResetPasswordView()
                         }
                     }
                 }
@@ -42,10 +62,13 @@ struct LoginView: View {
                     Section {
                         HStack {
                             Text("Don't have an account?")
-                            Button(action: {
-                                authViewModel.createAnAccount(emailAddress: emailAddress, password: password)
-                            }) {
+                            Button {
+                                displayCreateAccountSheet.toggle()
+                            } label: {
                                 Text("Create Account").bold()
+                            }
+                            .sheet(isPresented: $displayCreateAccountSheet) {
+                                CreateAccountView()
                             }
                         }
                     }

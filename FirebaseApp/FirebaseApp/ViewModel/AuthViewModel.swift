@@ -39,4 +39,8 @@ final class AuthViewModel: ObservableObject {
         }
     }
 
+    func resetPassword(emailAddress: String) {
+        Auth.auth().sendPasswordReset(withEmail: emailAddress)
+    }
+
 }
