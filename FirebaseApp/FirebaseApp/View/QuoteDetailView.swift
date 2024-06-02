@@ -18,7 +18,7 @@ struct QuoteDetailView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Text(quote.title ?? "Nothing to see here.")
+                    Text(quote.title ?? "No quote.")
                         .font(.system(size: 22, weight: .regular))
                         .padding()
                     Spacer()
